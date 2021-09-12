@@ -20,7 +20,7 @@ public class Main {
                     
                 if(j <= st/2) val ++; // inc the value till half point is reached
                 else val--; // dec the val after half
-                }
+                
             }
             System.out.println("* "); // for printing star in last pos
 
