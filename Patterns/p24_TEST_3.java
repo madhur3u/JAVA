@@ -7,7 +7,6 @@ public class Main {
 
         int n = scn.nextInt();
         int v = 1;
-
         for(int i = 1; i<=n; i++){
 
             int val = v;
@@ -25,20 +24,22 @@ public class Main {
                 else                        System.out.print(val+"\t"); // last line
 
                 val ++;
-
-                if(n % 2 == 0 && j == 1){  // if n is even
-
-                    if(i < n/2)                 v = v + 2*n;
-                    else if (i == n/2)          v = v + n;
-                    else                        v = v - 2*n;
-                }
-                if(n % 2 != 0 && j == 1){  // if n is odd
-                
-                    if(i < n/2 + 1)             v = v + 2*n;
-                    else if (i == n/2 + 1)      v = v - n;
-                    else                        v = v - 2*n;
-                }
             }
+            
+            // changing the value of v for different cases
+            if(n % 2 == 0){                 // if n is even
+
+                if(i < n/2)                 v = v + 2*n;
+                else if (i == n/2)          v = v + n;
+                else                        v = v - 2*n;
+            }
+            if(n % 2 != 0){                 // if n is odd
+                
+                if(i < n/2 + 1)             v = v + 2*n;
+                else if (i == n/2 + 1)      v = v - n;
+                else                        v = v - 2*n;
+            }
+
             System.out.println();
         }   
     }
