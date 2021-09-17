@@ -1,3 +1,6 @@
+// Given a N digit number find what is the maximum N-1 digit number 
+// which can be formed by removing one digit at a time
+
 import java.util.*;
 
 public class Main {
@@ -5,28 +8,24 @@ public class Main {
   public static void main(String[] args) {
     Scanner scn = new Scanner(System.in);
     int n = scn.nextInt();
-    int f = max3(n);
+    int f = max_d(n);
     System.out.println(f);
     
   }
 
-// 100 % BRUTEFORCE APPROACH
 
-  public static int max3(int n) {
-    int a1,a2,a3,a4;
-    int mx1,mx2,mx3,mx4;
+  public static int max_d(int n) {
+    int p = 10;
+    int max = 0;
+    while (n*10 > p){
 
-    a4 = n % 10;                // take out all 4 no.s first
-    a3 = (n % 100) / 10;
-    a2 = (n % 1000) / 100;
-    a1 = n / 1000;
-
-    mx1 = a2*100 + a3*10 + a4;  // all 3 dig numbers 
-    mx2 = a1*100 + a3*10 + a4;
-    mx3 = a1*100 + a2*10 + a4;
-    mx4 = a1*100 + a2*10 + a3;
-
-    return (Math.max(mx1,Math.max(mx2,Math.max(mx3,mx4))));
-    // find the maximum and return it
+      int r = n % p;
+      int n1 = (n / p)*(p / 10) + (r % (p / 10));
+      p = p * 10;
+      // System.out.println(n1);
+      if (n1 > max)  max = n1;
+    }
+    return max;
+    
   }
 }
