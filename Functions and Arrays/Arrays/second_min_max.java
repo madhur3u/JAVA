@@ -15,18 +15,18 @@ public class Main {
 
         for (int i = 0; i<n; i++){
 
-            if (a[i] > max) max = a[i];
+            if (a[i] > max) max = a[i];                 // find the min and max value first
             if (a[i] < min) min = a[i];
         }
 
-        int max2 = min,  min2 = max;
+        int max2 = min,  min2 = max;                    // initailize max2 with min and so on so that they get min ans max possible value 
 
-        for (int i = 0; i<n; i++){
+        for (int i = 0; i<n; i++){          
 
-            if (a[i] < max && a[i] > max2) 
+            if (a[i] < max && a[i] > max2)              // finding 2nd max
                 max2 = a[i];
 
-            if (a[i] > min && a[i] < min2) 
+            if (a[i] > min && a[i] < min2)              // finding 2nd min
                 min2 = a[i];
         }
         System.out.println(max2 + " " + min2);
