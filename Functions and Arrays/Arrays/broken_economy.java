@@ -1,3 +1,45 @@
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args) throws Exception {
+
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int[] a = new int[n];
+        
+        for (int i = 0; i<n; i++) a[i] = scn.nextInt();   // array INPUT array should always be SORTED for binary search
+        int k = scn.nextInt();                            // number to find in array
+        
+        int low = 0;
+        int high = a.length - 1;
+        int floor = 0, ceil = 0;                          // finding floor and ceil using BINARY SEARCH 
+        
+        while (low <= high){                                
+
+            int mid = (low + high) / 2;         // finding mid                    
+
+            if (k > a[mid])                     // if number is greater than mid
+            {                                   // then we discard left hand side 
+                low = mid + 1;                  // so updating low, high remains same
+                floor = a[mid];                 // and giving the value at mid to floor as this number is smaller than our k so this could be floor
+            }                      
+            else if (k< a[mid])                 // if number is smaller than mid
+            {                                   // then we discard right hand side 
+                high = mid - 1;                 // so updating high, low remains same
+                ceil = a[mid];                  // and giving the value at mid to ceil as this number is greater than our k so this could be ceil
+            }   
+            else                                // if number is found
+            {                                   // both ceil and floor are equal
+                floor = ceil = a[mid] ;         // and break
+                break;
+            }                                  
+        }
+        System.out.println(ceil);
+        System.out.println(floor);
+    }                                                                   
+} 
+// old way using high and low as when the loop ends we will have low as floor and high as ceil
+/*
 import java.io.*;
 import java.util.*;
 
@@ -43,3 +85,4 @@ public class Main{
       return range;    
     }                                                                         
 } 
+*/
