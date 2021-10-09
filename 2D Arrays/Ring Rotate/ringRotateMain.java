@@ -42,14 +42,14 @@ public class Main {
         int cmax = colLen - shell;      // but only once as we just need border not inner elements
 
         int index = 0;
-		int aLen;
+	    int aLen;
 
-		if (cmax == cmin && rmax == rmin)	aLen = 1;					// if shell has only 1 element
-		else if (cmax == cmin)				aLen = rmax - rmin + 1;		// if shell is a single row
-		else if (rmax == rmin)				aLen = cmax - cmin + 1;		// if shell is a single column
-		else 								aLen = 2*( (cmax - cmin + 1) + (rmax - rmin + 1) ) - 4;
-		// -4 is done as every corner element is occuring twice
-		// from above we get length of 1D array we are constructing in all diff cases
+	    if (cmax == cmin && rmax == rmin)	                aLen = 1;			// if shell has only 1 element
+	    else if (cmax == cmin)				aLen = rmax - rmin + 1;		// if shell is a single row
+	    else if (rmax == rmin)				aLen = cmax - cmin + 1;		// if shell is a single column
+	    else 						aLen = 2*( (cmax - cmin + 1) + (rmax - rmin + 1) ) - 4;
+	    // -4 is done as every corner element is occuring twice
+	    // from above we get length of 1D array we are constructing in all diff cases
 
         int[] a = new int[aLen];
 
@@ -58,7 +58,7 @@ public class Main {
             a[index] = twoD[i][j];
             index++;
         }
-		if (index == aLen) return a;	// check for if shell is a single column
+	if (index == aLen) return a;	// check for if shell is a single column
         cmin++;
 
         // bottom wall
@@ -66,7 +66,7 @@ public class Main {
             a[index] = twoD[i][j];
             index++;
         }
-		if (index == aLen) return a;	// check for if shell is a single row
+	if (index == aLen) return a;	// check for if shell is a single row
         rmax--;
 
         // right wall
@@ -91,7 +91,7 @@ public class Main {
     public static void rotate(int[] a, int k){
 
         int n = a.length;
-		if (n == 1) return;	// no need to rotate if only single element in array
+	if (n == 1) return;	// no need to rotate if only single element in array
 
         k = k % n;
         if (k < 0) k = k + n;
@@ -121,7 +121,7 @@ public class Main {
             twoD[i][j] = a[index];
             index++;
         }
-		if (index == a.length) return;		// check for if shell is a single column
+	if (index == a.length) return;		// check for if shell is a single column
         cmin++;
 
         // bottom wall
@@ -129,7 +129,7 @@ public class Main {
             twoD[i][j] = a[index];
             index++;
         }
-		if (index == a.length) return;		// check for if shell is a single row
+	if (index == a.length) return;		// check for if shell is a single row
         rmax--;
 
         // right wall
