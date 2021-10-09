@@ -145,7 +145,6 @@ public class Main {
             index++;
         }
         rmin++;
-
     }
 
     public static void display(int[][] arr){
@@ -160,11 +159,9 @@ public class Main {
     public static void reverse(int[] a, int left, int right ) {
 
         while (left < right){
-
           int temp = a[left];
           a[left] = a[right];
           a[right] = temp;
-
           left ++ ; right -- ;
         }
     }
