@@ -1,3 +1,11 @@
+// 11 12 13
+// 21 22 23
+// 31 32 33		this is a valid input
+
+// 11 21 31
+// 12 22 32
+// 13 23 33		this is also a valid input for this 
+
 import java.io.*;
 import java.util.*;
 
